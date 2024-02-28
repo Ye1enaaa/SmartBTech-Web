@@ -8,7 +8,7 @@ const Dashboard = () => {
   const [data, setData] = useState({ power: 0, voltage: 0, current: 0 });
 
   useEffect(() => {
-    const socket = io('http://192.168.254.111:5000');
+    const socket = io('http://192.168.131.169:5000');
     socket.on('message', newData => {
       setData(JSON.parse(newData));
     });
@@ -34,7 +34,10 @@ const Dashboard = () => {
           <div className="bg-white p-4 rounded-lg shadow-md h-48">
             <h2 className="text-lg font-semibold mb-2" style={{ fontFamily: 'Poppins' }}>Power [W]</h2>
             <div className='flex justify-end mr-6 space-x-20'>
-              <div className='text-8xl' style={{ fontFamily: 'Poppins' }}>{data.power}</div>
+              <div className='text-8xl' style={{ fontFamily: 'Poppins',
+            fontSize: '3rem',
+            alignSelf: 'center'
+             }}>{data.power}</div>
               <FontAwesomeIcon icon={faBolt} size='6x' style={{ color: '#8B8000' }} />
             </div>
           </div>
@@ -43,7 +46,9 @@ const Dashboard = () => {
           <div className="bg-white p-4 rounded-lg shadow-md h-48">
             <h2 className="text-lg font-semibold mb-2" style={{ fontFamily: 'Poppins' }}>Voltage [V]</h2>
             <div className='flex justify-end mr-6 space-x-20'>
-              <div className='text-8xl' style={{ fontFamily: 'Poppins' }}>{data.voltage}</div>
+              <div className='text-8xl' style={{ fontFamily: 'Poppins',
+            fontSize: '3rem',
+            alignSelf: 'center' }}>{data.voltage}</div>
               <FontAwesomeIcon icon={faTriangleExclamation} size='6x' style={{ color: '#FF0000' }} />
             </div>
           </div>
@@ -52,7 +57,10 @@ const Dashboard = () => {
           <div className="bg-white p-4 rounded-lg shadow-md h-48">
             <h2 className="text-lg font-semibold mb-2" style={{ fontFamily: 'Poppins' }}>Current [A]</h2>
             <div className='flex justify-end mr-6 space-x-20'>
-              <div className='text-8xl' style={{ fontFamily: 'Poppins' }}>{data.current}</div>
+              <div className='text-8xl' style={{ fontFamily: 'Poppins',
+            fontSize: '3rem',
+            alignSelf: 'center'
+             }}>{data.current}</div>
               <FontAwesomeIcon icon={faPlug} size='6x' style={{ color: '#8B8000' }} />
             </div>
           </div>
